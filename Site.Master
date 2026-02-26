@@ -1,0 +1,632 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="proyecto5.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Sisalatamira</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <style>
+        
+
+
+
+        .centered-link{
+            display: flex;
+            /*justify-content: center;*/
+            position: relative;
+            z-index: 100;
+        }
+
+
+        .menu-hamburguesa {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1100;
+        }
+        .centered-link a {
+            color: black;
+            text-decoration: none;
+            position: relative;
+            top: -30px; /* Ajusta este valor según sea necesario para superponer */
+            z-index: 110; /* Un valor alto para asegurarse de que esté encima */
+        }
+        .container {
+            display: flex;
+            gap: 5px;
+        }
+        .containerf {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px; /* Ajusta el espacio según sea necesario */
+        border-bottom: 1px solid #ccc; /* Cambia el color y el grosor de la línea según prefieras */
+        padding-bottom: 10px; /* Espacio entre el contenido y la línea */
+    }
+
+
+        .div1, .div2, .div3 {
+            flex: 1; /* Hace que los divs tomen el mismo espacio */
+            padding: 5px;
+            box-sizing: border-box; /* Incluye padding y border en el ancho total */
+            opacity: 0.8; /* Opacidad con punto decimal */
+            align-items: center;
+            flex-direction: column;
+            display: flex;
+            /*position: relative;*/
+        }
+        .div2 {
+            margin-right: 0; /* Elimina el margen del segundo div */
+        }
+
+        .page-header {
+            width: 250px;
+            height: 100%;
+            background-color: #f8f9fa;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 50px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        
+        .main-content {
+            /*margin-top: 3cm;*/
+            margin-left: 270px; /* Ajusta este valor según el ancho del menú */
+            padding: 50px;
+            box-sizing: border-box;
+        }
+        .menuinicio {
+            height: calc(100vh - 20px);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .linkempresa {
+            text-decoration: none;
+            color: inherit;
+        }
+        .botonempresa {
+            background-color: #000000;
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+        .botonempresa:hover {
+            background-color: #e9ecef;
+        }
+        .tituloempresa {
+            margin: 0;
+            font-size: 12px;
+            font-weight: normal;
+        }
+        /* Estilos responsivos para móviles */
+        @media (max-width: 768px) {
+            .page-header {
+                /*width: 100%;*/
+                /*height: auto;*/
+                /*position: relative;*/
+                display:none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding-top: 20px; /* Ajusta según el alto del menú en móviles */
+            }
+
+            .container {
+                flex-direction: column; /* Cambia la dirección de los elementos flex a columna */
+                margin-left: 0;
+                padding: 10px;
+
+               
+            }
+            .div1, .div2 {
+                width: 100%; /* Asegura que los divs ocupen el 100% del ancho del contenedor */
+            }
+        }
+    </style>
+
+    <script>
+(function () {
+    //Tiempo de inactividad permitido (en minutos)
+    var TIMEOUT_MIN = 540; //9 horas de sesion
+    //Minutos antes para mostrar un aviso
+    var WARN_MIN = 5; // Avisa 5 minutos antes 
+
+    //URL a donde redirigir tras expirar
+    var logoutUrl = 'login.aspx';
+
+    var tLogout, tWarn;
+
+    function resetTimers() {
+        clearTimeout(tLogout);
+        clearTimeout(tWarn);
+
+        // Aviso al usuario (opcional)
+        tWarn = setTimeout(function () {
+            alert("Tu sesión expirará por inactividad en " + WARN_MIN + " minuto(s).");
+        }, (TIMEOUT_MIN - WARN_MIN) * 60 * 1000);
+
+        // Logout automático
+        tLogout = setTimeout(function () {
+            window.location.href = logoutUrl;
+        }, TIMEOUT_MIN * 60 * 1000);
+    }
+
+    // Reinicia los timers cada vez que el usuario interactúa
+    ['load', 'mousemove', 'keypress', 'click', 'scroll', 'touchstart']
+        .forEach(function (evt) {
+            window.addEventListener(evt, resetTimers, { passive: true });
+        });
+
+    // Arranca los timers
+    resetTimers();
+})();
+    </script>
+
+
+</head>
+<body  class=<%= fondocss %>>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    
+
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   
+                    <a class="navbar-brand loguitoinicio" runat="server" href="~/Default.aspx" title="Inicio" >
+                         <img src="<%=ResolveClientUrl("~/images/A.png" ) %>" />  
+                    </a>
+                </div>
+            
+                <div class="navbar-collapse collapse">      
+
+                    <ul class="nav navbar-nav">
+                        <% if (rol == "2" || rol=="6" || rol=="1"){  %>
+                         <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" runat="server" href="~/">ALTAMIRA GROUP S.A.</a>
+                             <ul class="dropdown-menu">
+                                <%-- <li><a href="~/"> Informe de Directorio</a></li>--%>
+                                 <li><a href="<%=ResolveClientUrl("~/Reportes/2024.aspx") %>"> 2024</a></li>
+                                 <!-- 
+                                     <li><a href="<%=ResolveClientUrl("~/Reportes/informe_directorio.aspx") %>"> Informe de Directorio</a></li>
+                                    -->
+                                 <%--<li><a href="~/"> Status de Leads</a></li>--%>
+                              </ul>
+
+
+                             
+                        <li />
+                    <% } %>
+
+
+<% if (rol == "4" || rol == "2" || rol=="6" || rol=="1"){  %>
+    <asp:Repeater ID="rptEmpresasSuperior" runat="server">
+        <ItemTemplate>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    <%# Eval("empresa") %>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <!-- Ver Empresa -->
+                    <li>
+                        <a href='<%# ResolveClientUrl("~/contenido/empresas.aspx?bd=" + Eval("bd") + "&empresa=" + Eval("empresa")) %>'>
+                            Ver Empresa
+                        </a>
+                    </li>
+
+                    <!-- Opciones por BD (si tienes reglas por empresa/proyecto) -->
+                    <asp:Repeater ID="rptOpciones" runat="server"
+                        DataSource='<%# ObtenerOpcionesPorBD(Eval("bd").ToString()) %>'>
+                        <ItemTemplate>
+                            <li>
+                                <a href="<%# Eval("Url") %>"><%# Eval("Nombre") %></a>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                    <!-- ===================== -->
+                    <!-- Sección VENTAS (roles: 2, 6, 1) -->
+                    <!-- ===================== -->
+                    <% if (rol == "2" || rol=="6" || rol=="1"){  %>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">VENTAS</li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/mix_de_ventas.aspx?bd=" + Eval("bd")) %>'>
+                                Mix de Ventas
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/resumen_general_articulos.aspx?bd=" + Eval("bd")) %>'>
+                                Resumen General de Artículos
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/estado_cuenta_general_clientes.aspx?bd=" + Eval("bd")) %>'>
+                                Estado de Cuenta General de Clientes
+                            </a>
+                        </li>
+                    <% } %>
+
+                    <!-- ===================== -->
+                    <!-- Sección CRM (roles: 4, 6, 1) -->
+                    <!-- ===================== -->
+                    <% if (rol == "4" || rol=="6" || rol=="1" ){  %>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">CRM</li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/informe_comercial_crm.aspx?bd=" + Eval("bd")) %>'>
+                                Informe Comercial CRM
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/status_leads.aspx?bd=" + Eval("bd")) %>'>
+                                Status de Leads
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/informe_de_lista_de_precios.aspx?bd=" + Eval("bd")) %>'>
+                                Informe de Lista de Precios
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/visitas_efectivas_inbound.aspx?bd=" + Eval("bd")) %>'>
+                                Informe de Visitas Efectivas Inbound
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/visitas_asignadas_showrrom.aspx?bd=" + Eval("bd")) %>'>
+                                Informe de Visitas Asignadas Showroom
+                            </a>
+                        </li>
+                    <% } %>
+
+                    <!-- ===================== -->
+                    <!-- Sección FINANZAS (roles: 3, 6, 1) -->
+                    <!-- ===================== -->
+                    <% if (rol == "3" || rol=="6" || rol=="1" ){  %>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">FINANZAS</li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/presupuesto.aspx?bd=" + Eval("bd")) %>'>
+                                Presupuesto
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/flujo_caja.aspx?bd=" + Eval("bd")) %>'>
+                                Flujo de Caja
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/informe_consolidado.aspx?bd=" + Eval("bd")) %>'>
+                                Informe Consolidado
+                            </a>
+                        </li>
+                    <% } %>
+
+                    <!-- ===================== -->
+                    <!-- Sección OBRAS (roles: 5, 6, 1) -->
+                    <!-- ===================== -->
+                    <% if (rol == "5" || rol=="6" || rol=="1" ){  %>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">OBRAS</li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/Permisologia.aspx?bd=" + Eval("bd")) %>'>
+                                Permisología
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/avance_edificaiones.aspx?bd=" + Eval("bd")) %>'>
+                                Avance Físico Edificaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/avance_urbanismo.aspx?bd=" + Eval("bd")) %>'>
+                                Avance Físico Urbanismo
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
+            </li>
+        </ItemTemplate>
+    </asp:Repeater>
+<% } %>
+
+
+<% if (rol=="14"){  %>
+
+                         <li class="dropdown">
+
+                             <a class="dropdown-toggle" data-toggle="dropdown">URBANA GG S.A</a> 
+                          
+                           
+                             <ul class="dropdown-menu"  >
+                                 
+                                     <% if (rol == "2" || rol=="6" || rol=="14"){  %>
+                                         <li><a href="<%=ResolveClientUrl("~/contenido/empresas.aspx?bd=URBANAGGSA&empresa=URBANA GG S.A.") %>">Ver Empresa</a></li> 
+                                          
+                                    
+                                         <li role="separator" class="divider"></li>
+                                         <li class="dropdown-header">VENTAS</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/mix_de_ventas.aspx?bd=URBANAGGSA") %>">Mix de Ventas</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/resumen_general_articulos.aspx?bd=URBANAGGSA") %>">Resumen General de Articulos</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/estado_cuenta_general_clientes.aspx?bd=URBANAGGSA") %>">Estado de Cuenta General de Clientes</a></li>                                    
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+                 
+                                 <% if (rol == "4" || rol=="6" || rol=="14" ){  %>
+                                     
+                                         <li class="dropdown-header">CRM</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/informe_comercial_crm.aspx?bd=URBANAGGSA") %>">Informe Comercial CRM</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/status_leads.aspx?bd=URBANAGGSA") %>">Status de Leads</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/informe_de_lista_de_precios.aspx?bd=URBANAGGSA") %>">Informe de Lista de Precios</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/visitas_efectivas_inbound.aspx?bd=URBANAGGSA") %>">Informe de Visitas Efectivas Inbound</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/visitas_asignadas_showrrom.aspx?bd=URBANAGGSA") %>">Informe de Visitas Asignadas Showroom</a></li>
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+
+                                  <% if (rol == "3" || rol=="6" || rol=="14" ){  %>
+                                     
+                                         <li class="dropdown-header">FINANZAS</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/presupuesto.aspx?bd=URBANAGGSA") %>">Presupuesto</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/flujo_caja.aspx?bd=URBANAGGSA") %>">Flujo de Caja</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/informe_consolidado.aspx?bd=URBANAGGSA") %>">Informe Consolidado</a></li>
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+
+                                    <% if (rol == "5" || rol=="6" || rol=="14" ){  %>
+                                     
+                                         <li class="dropdown-header">OBRAS</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/Permisologia.aspx?bd=URBANAGGSA") %>">Permisologia</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/avance_edificaiones.aspx?bd=URBANAGGSA") %>">Avance Físico Edificaciones</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/avance_urbanismo.aspx?bd=URBANAGGSA")%>">Avance Físico Urbanismo</a></li>
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+                                
+                                 
+                                                                      
+                             </ul>
+                       </li>     
+<% } %>
+
+<!--ALTAZENTA -->
+<% if (rol=="15"){  %>
+
+                         <li class="dropdown">
+
+                             <a class="dropdown-toggle" data-toggle="dropdown">ALTAZENTA NORTE S.A.</a> 
+                          
+                           
+                             <ul class="dropdown-menu"  >
+                                 
+                                     <% if (rol == "2" || rol=="6" || rol=="15"){  %>
+                                         <li><a href="<%=ResolveClientUrl("~/contenido/empresas.aspx?bd=ALTAZENTA_NORTE_SA&empresa=ALTAZENTA NORTE S.A.") %>">Ver Empresa</a></li> 
+                                          
+                                    
+                                         <li role="separator" class="divider"></li>
+                                         <li class="dropdown-header">VENTAS</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/mix_de_ventas_anorte.aspx?bd=ALTAZENTA_NORTE_SA") %>">Mix de Ventas</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/resumen_general_articulos_2.aspx?bd=ALTAZENTA_NORTE_SA") %>">Resumen General de Articulos</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/estado_cuenta_general_clientes_2.aspx?bd=ALTAZENTA_NORTE_SA") %>">Estado de Cuenta General de Clientes</a></li>                                    
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+                 
+                                 <% if (rol == "4" || rol=="6" || rol=="15" ){  %>
+                                     
+                                         <li class="dropdown-header">CRM</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/informe_comercial_crm_2.aspx?bd=ALTAZENTA_NORTE_SA") %>">Informe Comercial CRM</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/status_leads_2.aspx?bd=ALTAZENTA_NORTE_SA") %>">Status de Leads</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/informe_de_lista_de_precios_2.aspx?bd=ALTAZENTA_NORTE_SA") %>">Informe de Lista de Precios</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/visitas_efectivas_inbound_2.aspx?bd=ALTAZENTA_NORTE_SA") %>">Informe de Visitas Efectivas Inbound</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/visitas_asignadas_showrrom_2.aspx?bd=ALTAZENTA_NORTE_SA") %>">Informe de Visitas Asignadas Showroom</a></li>
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+
+                                  <% if (rol == "3" || rol=="6" || rol=="15" ){  %>
+                                     
+                                         <li class="dropdown-header">FINANZAS</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/presupuesto_anorte.aspx?bd=ALTAZENTA_NORTE_SA") %>">Presupuesto</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/flujo_caja.aspx?bd=ALTAZENTA_NORTE_SA") %>">Flujo de Caja</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/informe_consolidado.aspx?bd=ALTAZENTA_NORTE_SA") %>">Informe Consolidado</a></li>
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+
+                                    <% if (rol == "5" || rol=="6" || rol=="15" ){  %>
+                                     
+                                         <li class="dropdown-header">OBRAS</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/Permisologia.aspx?bd=ALTAZENTA_NORTE_SA") %>">Permisologia</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/avance_edificaiones.aspx?bd=ALTAZENTA_NORTE_SA") %>">Avance Físico Edificaciones</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/avance_urbanismo.aspx?bd=ALTAZENTA_NORTE_SA")%>">Avance Físico Urbanismo</a></li>
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+                                
+                                 
+                                                                      
+                             </ul>
+                       </li>     
+<% } %>
+
+<!--ALTACREO -->
+<% if (rol=="16"){  %>
+
+                         <li class="dropdown">
+
+                             <a class="dropdown-toggle" data-toggle="dropdown">ALTACREO S.A.</a> 
+                          
+                           
+                             <ul class="dropdown-menu"  >
+                                 
+                                     <% if (rol == "2" || rol=="6" || rol=="16"){  %>
+                                         <li><a href="<%=ResolveClientUrl("~/contenido/empresas.aspx?bd=ALTACREOSA&empresa=ALTACREO S.A.") %>">Ver Empresa</a></li> 
+                                          
+                                    
+                                         <li role="separator" class="divider"></li>
+                                         <li class="dropdown-header">VENTAS</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/mix_de_ventas_veralta.aspx?bd=ALTACREOSA") %>">Mix de Ventas</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/resumen_general_articulos_2.aspx?bd=ALTACREOSA") %>">Resumen General de Articulos</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/estado_cuenta_general_clientes_2.aspx?bd=ALTACREOSA") %>">Estado de Cuenta General de Clientes</a></li>                                    
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+                 
+                                 <% if (rol == "4" || rol=="6" || rol=="16" ){  %>
+                                     
+                                         <li class="dropdown-header">CRM</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/informe_comercial_crm_2.aspx?bd=ALTACREOSA") %>">Informe Comercial CRM</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/status_leads_2.aspx?bd=ALTACREOSA") %>">Status de Leads</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/informe_de_lista_de_precios_2.aspx?bd=ALTACREOSA") %>">Informe de Lista de Precios</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/visitas_efectivas_inbound_2.aspx?bd=ALTACREOSA") %>">Informe de Visitas Efectivas Inbound</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/visitas_asignadas_showrrom_2.aspx?bd=ALTACREOSA") %>">Informe de Visitas Asignadas Showroom</a></li>
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+
+                                  <% if (rol == "3" || rol=="6" || rol=="16" ){  %>
+                                     
+                                         <li class="dropdown-header">FINANZAS</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/presupuesto_veralta.aspx?bd=ALTACREOSA") %>">Presupuesto</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/flujo_caja.aspx?bd=ALTACREOSA") %>">Flujo de Caja</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/informe_consolidado.aspx?bd=ALTACREOSA") %>">Informe Consolidado</a></li>
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+
+                                    <% if (rol == "5" || rol=="6" || rol=="16" ){  %>
+                                     
+                                         <li class="dropdown-header">OBRAS</li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/Permisologia.aspx?bd=ALTACREOSA") %>">Permisologia</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/avance_edificaiones.aspx?bd=ALTACREOSA") %>">Avance Físico Edificaciones</a></li>
+                                         <li><a href="<%=ResolveClientUrl("~/Reportes/avance_urbanismo.aspx?bd=ALTACREOSA")%>">Avance Físico Urbanismo</a></li>
+                                         <li role="separator" class="divider"></li>
+                         
+                                     <% } %>
+                                
+                                 
+                                                                      
+                             </ul>
+                       </li>     
+<% } %>
+                        
+                    
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><%= nombreusu %></b> <span class="caret"></span></a>
+			                <ul id="login-dp" class="dropdown-menu">
+                               <li>
+                                    <asp:LinkButton ID="lklCambiarPass" runat="server" OnClick="lklCambiarPass_Click" >Cambiar Password</asp:LinkButton>
+				                </li>
+                                <% if ( rol=="6"){  %>
+                                <li>
+                                    <asp:LinkButton ID="lklregistrarusuario" runat="server" OnClick="lklregistrarusuario_Click">Usuarios</asp:LinkButton>
+				                </li>
+                                <li>
+                                    <asp:LinkButton ID="lklRoles" runat="server" OnClick="lklRoles_Click">Roles</asp:LinkButton>
+				                </li>
+                                <li>
+                                    <asp:LinkButton ID="lklEmpresas" runat="server" OnClick="lklEmpresas_Click" >Empresas</asp:LinkButton>
+				                </li>
+                                 <% } %>
+				                <li>
+                                    <asp:LinkButton ID="licerrar" runat="server" OnClick="licerrar_Click">Cerrar Sesion</asp:LinkButton>
+				                </li>
+                               
+			                </ul>
+                        </li>
+
+
+
+
+                    </ul> <!--ACA TERMINA -->
+
+                    <ul class="nav navbar-nav navbar-right">
+                       <!-- <li><p class="navbar-text"></p></li> -->
+
+                        
+                      </ul>
+                </div><!--ACA TERMINA -->
+            </div>
+   </div>    
+
+        <div class="body-content">
+           <div class="container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <a href="Reportes/CrystalReport.rpt">Reportes/CrystalReport.rpt</a> 
+            </asp:ContentPlaceHolder>
+        </div>
+
+            <div class="container-fluid contentreportes">
+            <asp:ContentPlaceHolder ID="Reportes" runat="server">
+                
+            </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+
+          <footer>
+
+              <% if (fondocss == "fondo")
+                  {  %>
+                <img src="<%=ResolveClientUrl("~/images/altamira_black.png") %>" />
+
+              <% }%>
+
+          </footer>
+        
+    </form>
+</body>
+</html>
