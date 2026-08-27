@@ -148,24 +148,37 @@
         }
         /* Estilos para exportar a PDF (Ctrl+P / Guardar como PDF) */
         @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             .no-print,
             .navbar,
             .page-header,
             .menu-hamburguesa,
-            .centered-link {
+            .centered-link,
+            footer {
                 display: none !important;
             }
+
             body {
-                background: #fff !important;
                 padding-top: 0 !important;
             }
+
             .main-content {
                 margin-left: 0 !important;
                 padding: 0 !important;
             }
+
+            .div1, .div2, .div3 {
+                opacity: 1 !important;
+            }
+
             .container {
                 page-break-inside: avoid;
             }
+
             .title-container {
                 page-break-after: avoid;
             }
