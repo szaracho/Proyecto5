@@ -146,7 +146,7 @@
                               <button  class="dropdown-toggle btn btn-primary btn-lg btn-block btnespecial" data-toggle="dropdown"  runat="server">LEGAL</button>
                              <ul class="dropdown-menu fondito">
                                 <li><a href="<%=ResolveClientUrl("~/Reportes/resumenlegal.aspx?bd=" +bd) %>">Resumen Legal</a></li>
-                                
+                                <!-- -->
                              </ul>
                            </div>
                         </li>
@@ -207,9 +207,9 @@
                            <div class="grupo">
                               <button  class="dropdown-toggle btn btn-primary btn-lg btn-block btnespecial" data-toggle="dropdown"  runat="server">OBRAS</button>
                              <ul class="dropdown-menu fondito">
-                                <li><a href="<%=ResolveClientUrl("~/Reportes/avanceedificacion.aspx?bd=" +bd) %>">Avance Edificacion</a></li>
+                                <li><a href="<%=ResolveClientUrl("~/Reportes/avance_edificaiones.aspx?bd=" +bd) %>">Avance Edificacion</a></li>
                                  <li role="separator" class="divider"></li>
-                                <li><a href="<%=ResolveClientUrl("~/Reportes/avanceurbanismo.aspx?bd=" +bd) %>">Avance Urbanismo</a></li>
+                                <li><a href="<%=ResolveClientUrl("~/Reportes/avance_urbanismo.aspx?bd=" +bd) %>">Avance Urbanismo</a></li>
                              </ul>
                            </div>
                         </li>
@@ -220,7 +220,8 @@
                            <div class="grupo">
                               <button  class="dropdown-toggle btn btn-primary btn-lg btn-block btnespecial" data-toggle="dropdown"  runat="server">CONSOLIDADO</button>
                              <ul class="dropdown-menu fondito">
-                                <li><a href="<%=ResolveClientUrl("~/Reportes/informeconsolidado.aspx?bd=" +bd) %>">Informe Consolidado</a></li>
+                                <li><a href="<%=ResolveClientUrl("~/Reportes/informe_consolidado.aspx?bd=" +bd) %>">Informe Consolidado</a></li> 
+                                 
                                  
                              </ul>
                            </div>

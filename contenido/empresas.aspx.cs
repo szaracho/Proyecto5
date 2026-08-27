@@ -24,7 +24,7 @@ namespace proyecto5
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
 
             if (Context.User.Identity.IsAuthenticated)
             {
@@ -50,7 +50,7 @@ namespace proyecto5
         {
             basedatoss = Request.QueryString["bd"];
 
-        //------------------------------------------------------------------//
+            //------------------------------------------------------------------//
             ReportDocument CRRpt1 = new ReportDocument();
             ReportDocument CRRpt2 = new ReportDocument();
             ReportDocument CRRpt3 = new ReportDocument();

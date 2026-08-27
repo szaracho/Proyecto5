@@ -186,13 +186,13 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer11;
 
         /// <summary>
-        /// Control CrystalReportViewer12.
+        /// Control CrystalReportViewer15.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer12;
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer15;
 
         /// <summary>
         /// Control row5.
@@ -222,15 +222,6 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer14;
 
         /// <summary>
-        /// Control CrystalReportViewer15.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer15;
-
-        /// <summary>
         /// Control row6.
         /// </summary>
         /// <remarks>
@@ -238,15 +229,6 @@ namespace proyecto5
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel row6;
-
-        /// <summary>
-        /// Control CrystalReportViewer16.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer16;
 
         /// <summary>
         /// Control CrystalReportViewer17.
@@ -267,6 +249,33 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer18;
 
         /// <summary>
+        /// Control CrystalReportViewer16.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer16;
+
+        /// <summary>
+        /// Control rowMorosidadActual2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel rowMorosidadActual2;
+
+        /// <summary>
+        /// Control CrystalReportViewer20.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer20;
+
+        /// <summary>
         /// Control row7.
         /// </summary>
         /// <remarks>
@@ -283,15 +292,6 @@ namespace proyecto5
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer19;
-
-        /// <summary>
-        /// Control CrystalReportViewer20.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer20;
 
         /// <summary>
         /// Control CrystalReportViewer21.
@@ -366,15 +366,6 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer26;
 
         /// <summary>
-        /// Control row10.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel row10;
-
-        /// <summary>
         /// Control CrystalReportViewer27.
         /// </summary>
         /// <remarks>
@@ -382,6 +373,15 @@ namespace proyecto5
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer27;
+
+        /// <summary>
+        /// Control row10.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel row10;
 
         /// <summary>
         /// Control CrystalReportViewer28.
@@ -402,6 +402,15 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer29;
 
         /// <summary>
+        /// Control CrystalReportViewer70.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer70;
+
+        /// <summary>
         /// Control row11.
         /// </summary>
         /// <remarks>
@@ -411,76 +420,13 @@ namespace proyecto5
         protected global::System.Web.UI.WebControls.Panel row11;
 
         /// <summary>
-        /// Control CrystalReportViewer30.
+        /// Control CrystalReportViewer12.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer30;
-
-        /// <summary>
-        /// Control CrystalReportViewer31.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer31;
-
-        /// <summary>
-        /// Control CrystalReportViewer32.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer32;
-
-        /// <summary>
-        /// Control row12.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel row12;
-
-        /// <summary>
-        /// Control CrystalReportViewer33.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer33;
-
-        /// <summary>
-        /// Control CrystalReportViewer34.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer34;
-
-        /// <summary>
-        /// Control CrystalReportViewer35.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer35;
-
-        /// <summary>
-        /// Control row13.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel row13;
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer12;
 
         /// <summary>
         /// Control CrystalReportViewer36.
@@ -501,40 +447,31 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer37;
 
         /// <summary>
-        /// Control CrystalReportViewer38.
+        /// Control row12.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer38;
+        protected global::System.Web.UI.WebControls.Panel row12;
 
         /// <summary>
-        /// Control row14.
+        /// Control CrystalReportViewer65.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel row14;
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer65;
 
         /// <summary>
-        /// Control CrystalReportViewer39.
+        /// Control row13.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer39;
-
-        /// <summary>
-        /// Control CrystalReportViewer40.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer40;
+        protected global::System.Web.UI.WebControls.Panel row13;
 
         /// <summary>
         /// Control CrystalReportViewer41.
@@ -544,15 +481,6 @@ namespace proyecto5
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer41;
-
-        /// <summary>
-        /// Control row15.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel row15;
 
         /// <summary>
         /// Control CrystalReportViewer42.
@@ -573,58 +501,13 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer43;
 
         /// <summary>
-        /// Control CrystalReportViewer44.
+        /// Control row14.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer44;
-
-        /// <summary>
-        /// Control row16.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel row16;
-
-        /// <summary>
-        /// Control CrystalReportViewer45.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer45;
-
-        /// <summary>
-        /// Control CrystalReportViewer46.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer46;
-
-        /// <summary>
-        /// Control CrystalReportViewer47.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer47;
-
-        /// <summary>
-        /// Control row17.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel row17;
+        protected global::System.Web.UI.WebControls.Panel row14;
 
         /// <summary>
         /// Control CrystalReportViewer48.
@@ -654,13 +537,13 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer50;
 
         /// <summary>
-        /// Control row18.
+        /// Control row15.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel row18;
+        protected global::System.Web.UI.WebControls.Panel row15;
 
         /// <summary>
         /// Control CrystalReportViewer51.
@@ -690,6 +573,114 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer53;
 
         /// <summary>
+        /// Control row16.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel row16;
+
+        /// <summary>
+        /// Control CrystalReportViewer30.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer30;
+
+        /// <summary>
+        /// Control CrystalReportViewer31.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer31;
+
+        /// <summary>
+        /// Control CrystalReportViewer32.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer32;
+
+        /// <summary>
+        /// Control row17.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel row17;
+
+        /// <summary>
+        /// Control CrystalReportViewer33.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer33;
+
+        /// <summary>
+        /// Control CrystalReportViewer34.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer34;
+
+        /// <summary>
+        /// Control CrystalReportViewer35.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer35;
+
+        /// <summary>
+        /// Control row18.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel row18;
+
+        /// <summary>
+        /// Control CrystalReportViewer40.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer40;
+
+        /// <summary>
+        /// Control CrystalReportViewer39.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer39;
+
+        /// <summary>
+        /// Control CrystalReportViewer38.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer38;
+
+        /// <summary>
         /// Control row19.
         /// </summary>
         /// <remarks>
@@ -699,31 +690,103 @@ namespace proyecto5
         protected global::System.Web.UI.WebControls.Panel row19;
 
         /// <summary>
-        /// Control CrystalReportViewer54.
+        /// Control CrystalReportViewer66.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer54;
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer66;
 
         /// <summary>
-        /// Control CrystalReportViewer55.
+        /// Control CrystalReportViewer67.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer55;
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer67;
 
         /// <summary>
-        /// Control CrystalReportViewer56.
+        /// Control CrystalReportViewer68.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer56;
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer68;
+
+        /// <summary>
+        /// Control rowMaquinaria1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel rowMaquinaria1;
+
+        /// <summary>
+        /// Control CrystalReportViewer69.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer69;
+
+        /// <summary>
+        /// Control CrystalReportViewer71.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer71;
+
+        /// <summary>
+        /// Control CrystalReportViewer72.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer72;
+
+        /// <summary>
+        /// Control costosMaquinariasEquipos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel costosMaquinariasEquipos;
+
+        /// <summary>
+        /// Control CrystalReportViewer73.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer73;
+
+        /// <summary>
+        /// Control CrystalReportViewer74.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer74;
+
+        /// <summary>
+        /// Control CrystalReportViewer75.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer75;
 
         /// <summary>
         /// Control row20.
@@ -825,15 +888,6 @@ namespace proyecto5
         protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer64;
 
         /// <summary>
-        /// Control CrystalReportViewer65.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer65;
-
-        /// <summary>
         /// Control row23.
         /// </summary>
         /// <remarks>
@@ -841,33 +895,6 @@ namespace proyecto5
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel row23;
-
-        /// <summary>
-        /// Control CrystalReportViewer66.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer66;
-
-        /// <summary>
-        /// Control CrystalReportViewer67.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer67;
-
-        /// <summary>
-        /// Control CrystalReportViewer68.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CrystalReportViewer68;
 
         /// <summary>
         /// Control btnLoadMore.

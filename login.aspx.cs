@@ -73,56 +73,37 @@ namespace proyecto5
                     reader.Close();
                 }
 
-
-                // Cleanup command and connection objects.
-               
-
-
-                //ORIGINAL
-                // Create SqlCommand to select pwd field from users table given supplied userName.
-                //cmd = new SqlCommand("Select pwd from users where uname=@userName", conn);
-                //cmd.Parameters.Add("@userName", SqlDbType.VarChar, 25);
-                //cmd.Parameters["@userName"].Value = userName;
-
-                //
-
-                // MOFIDICANDO PARA TRAER EL ROL 
-                /* cmd = new SqlCommand("SELECT ISNULL((Select rol_id from users where codigo=@codigo and Pwd=@pass),0)", conn);
-                 cmd.Parameters.Add("@codigo", SqlDbType.VarChar, 25);
-                 cmd.Parameters.Add("@pass", SqlDbType.VarChar, 25);
-                 cmd.Parameters["@codigo"].Value = codigo;
-                 cmd.Parameters["@pass"].Value = passWord;
-
-                 // Execute command and fetch pwd field into lookupPassword string.
-                 //lookupPassword = (string)cmd.ExecuteScalar();
-
-                 elrol = (Int32)cmd.ExecuteScalar();
-
-                 // Cleanup command and connection objects.
-                 cmd.Dispose();
-                 conn.Dispose();*/
-
-
             }
             catch (Exception ex)
             {
+                try
+                {
+                    string logPath = @"C:\Reportes_Sap\error_log.txt";
+                    string msg = string.Format(
+                        "[{0}] ERROR en ValidateUser Login\r\n" +
+                        "Mensaje : {1}\r\n" +
+                        "Tipo    : {2}\r\n" +
+                        "Stack   :\r\n{3}\r\n" +
+                        "Inner   : {4}\r\n" +
+                        "{5}\r\n",
+                        DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                        ex.Message,
+                        ex.GetType().FullName,
+                        ex.StackTrace,
+                        ex.InnerException?.Message ?? "ninguna",
+                        new string('-', 80)
+                    );
+                    System.IO.File.AppendAllText(logPath, msg);
+                }
+                catch { }
                 // Add error handling here for debugging.
                 // This error message should not be sent back to the caller.
                 System.Diagnostics.Trace.WriteLine("[ValidateUser] Exception " + ex.Message);
-            }
-
-            // If no password found, return false.
-            /*if (null == lookupPassword)
-            {
-                // You could write failed login attempts here to event log for additional security.
-                return false;
-            }*/
-
-            // Compare lookupPassword and input passWord, using a case-sensitive comparison.
-            //return (0 == string.Compare(lookupPassword, passWord, false));
-            
+                return new List<Usuarios>();
+            }       
             return usuarios;
         }
+
         public class Usuarios
         {
             public string codigo { get; set; }

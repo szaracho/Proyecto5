@@ -17,6 +17,11 @@ namespace proyecto5
             // Código que se ejecuta al iniciar la aplicación
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Calienta el caché de reportes al arrancar (en segundo plano) y deja un
+            // refresco periódico. Evita el "hueco" de caché vacío tras un reciclaje
+            // del App Pool o entre warmups programados, que hacía caer el dashboard.
+            ReportCache.Initialize("INVERSIONESGGSA");
         }
 
         public override string GetVaryByCustomString(HttpContext context, string custom)

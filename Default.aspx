@@ -80,6 +80,7 @@
 
 
 <asp:Content ID="Content" ContentPlaceHolderID="Reportes" runat="server" >
+    <link rel="stylesheet" href="Content\css\Styles.css" />
     <asp:UpdatePanel runat="server" ID="upReportes" UpdateMode="Conditional" ChildrenAsTriggers="false">
     <ContentTemplate>
 
@@ -87,6 +88,12 @@
 
     <div class="main-content">
         
+
+
+    <div class="title-container">
+        <h2>FACTURACION Y COBRANZAS</h2>
+    </div>
+
         <asp:Panel runat="server" ID="row1"> 
             <div class="container">
                 <div class="div1">
@@ -168,14 +175,24 @@
                 </div>
                 <div class="div2">
                     <CR:CrystalReportViewer ID="CrystalReportViewer11" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
-                
+                    
                 </div>
                 <div class="div3">
+                     <CR:CrystalReportViewer ID="CrystalReportViewer15" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Recobranza_entre_anhosportes/cobranza_entre_anhos.aspx") %>">Ver Detalle</a>
+                    </div>
+                    <%--<CR:CrystalReportViewer ID="CrystalReportViewer16" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
+<%--                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/detalle_disponibilidad.aspx") %>">Ver Detalle</a>
+                    </div>--%>
+                </div>
+<%--                <div class="div3">
                     <CR:CrystalReportViewer ID="CrystalReportViewer12" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
                         <a href="<%=ResolveClientUrl("~/Reportes/detalle_disponibilidad.aspx") %>">Ver Detalle</a>
                     </div>
-                </div>
+                </div>--%>
             </div>
         </asp:Panel>
 
@@ -194,10 +211,11 @@
                     </div>
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer15" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                      
+<%--                    <CR:CrystalReportViewer ID="CrystalReportViewer15" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
                         <a href="<%=ResolveClientUrl("~/Reportes/cobranza_entre_anhos.aspx") %>">Ver Detalle</a>
-                    </div>
+                    </div>--%>
                 </div>
             </div>
         </asp:Panel>
@@ -205,24 +223,65 @@
         <asp:Panel runat="server" ID="row6" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer16" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
-                
-                </div>
-                <div class="div2">
                     <CR:CrystalReportViewer ID="CrystalReportViewer17" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
                         <a href="<%=ResolveClientUrl("~/Reportes/por_cobrar_anho_detalle.aspx") %>">Ver Detalle</a>
                     </div>
+<%--                      <CR:CrystalReportViewer ID="CrystalReportViewer13" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/cobranza_anual_historico.aspx") %>">Ver Detalle</a>
+                    </div>--%>
+<%--                  <CR:CrystalReportViewer ID="CrystalReportViewer15" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Recobranza_entre_anhosportes/cobranza_entre_anhos.aspx") %>">Ver Detalle</a>
+                    </div>--%>
+
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer16" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
+                
                 </div>
-                <div class="div3">
+                <div class="div2">
                     <CR:CrystalReportViewer ID="CrystalReportViewer18" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link">
                         <a href="<%=ResolveClientUrl("~/Reportes/por_cobrar_mes_detalle.aspx") %>">Ver Detalle</a>
                     </div>
+
                 </div>
+                <div class="div3">
+                    <CR:CrystalReportViewer ID="CrystalReportViewer16" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+<%--                     <CR:CrystalReportViewer ID="CrystalReportViewer17" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/por_cobrar_anho_detalle.aspx") %>">Ver Detalle</a>
+                    </div>--%>
+                    
+                </div>
+
             </div>
         </asp:Panel>
-        
+
+        <asp:Panel runat="server" ID="rowMorosidadActual2" Visible="true">
+        <div class="container">
+            <div class="div1">
+               <CR:CrystalReportViewer ID="CrystalReportViewer20" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link">
+                        <a href="<%=ResolveClientUrl("~/Reportes/morosidad_actual_detalle.aspx") %>">Ver Detalle</a>
+                    </div>
+            </div>
+            <div class="div2">
+                <!-- vacío o agrega otro viewer -->
+            </div>
+            <div class="div3">
+                <!-- vacío o agrega otro viewer -->
+            </div>
+        </div>
+    </asp:Panel>
+
+
+
+      
+        <div class="title-container">
+            <h2>ACTIVOS - PASIVOS</h2>
+        </div>
+
         <asp:Panel runat="server" ID="row7" Visible="false">
             <div class="container">
                 <div class="div1">
@@ -232,10 +291,10 @@
                     </div>
                 </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer20" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+<%--                    <CR:CrystalReportViewer ID="CrystalReportViewer20" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link">
                         <a href="<%=ResolveClientUrl("~/Reportes/morosidad_actual_detalle.aspx") %>">Ver Detalle</a>
-                    </div>
+                    </div>--%>
                 </div>
                 <div class="div3">
                     <CR:CrystalReportViewer ID="CrystalReportViewer21" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
@@ -271,6 +330,7 @@
             </div>
         </asp:Panel>
 
+
         <asp:Panel runat="server" ID="row9" Visible="false">
             <div class="container">
                 <div class="div1">
@@ -286,6 +346,10 @@
                     </div>
                 </div>
                 <div class="div3">
+                    <CR:CrystalReportViewer ID="CrystalReportViewer27" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link">
+                        <a href="<%=ResolveClientUrl("~/Reportes/deudas_accionistas_detalle.aspx") %>">Ver Detalle</a>
+                    </div>
                 
                 </div>
             </div>
@@ -296,53 +360,72 @@
         <asp:Panel runat="server" ID="row10" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer27" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer28" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+<%--                    <CR:CrystalReportViewer ID="CrystalReportViewer27" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link">
                         <a href="<%=ResolveClientUrl("~/Reportes/deudas_accionistas_detalle.aspx") %>">Ver Detalle</a>
-                    </div>
+                    </div>--%>
                 </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer28" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
-                </div>
-                <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer29" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
-                    <div class="centered-link"> 
+                     <CR:CrystalReportViewer ID="CrystalReportViewer29" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link">
                         <a href="<%=ResolveClientUrl("~/Reportes/detalle_cobertura.aspx") %>">Ver Detalle</a>
                     </div>
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer28" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
+                </div>
+                <div class="div3">
+                    <CR:CrystalReportViewer ID="CrystalReportViewer70" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+        
                 </div>
             </div>
         </asp:Panel>
+
+
+        <div class="title-container">
+            <h2>CAJA</h2>
+        </div>
 
         <asp:Panel runat="server" ID="row11" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer30" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer12" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
-                        <a href="<%=ResolveClientUrl("~/Reportes/alquileres_anual_detalle.aspx") %>">Ver Detalle</a>
+                        <a href="<%=ResolveClientUrl("~/Reportes/detalle_disponibilidad.aspx") %>">Ver Detalle</a>
                     </div>
                 </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer31" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                     <CR:CrystalReportViewer ID="CrystalReportViewer36" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
-                        <a href="<%=ResolveClientUrl("~/Reportes/alquileres_mensual_detalle.aspx") %>">Ver Detalle</a>
+                        <a href="<%=ResolveClientUrl("~/Reportes/operaciones_no_conciliadas_detalle.aspx") %>">Ver Detalle</a>
                     </div>
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer32" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer37" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/monto_no_conciliado_detalle.aspx") %>">Ver Detalle</a>
+                    </div>                
                 </div>
             </div>
         </asp:Panel>
 
+        <div class="title-container">
+            <h2>OPORTUNIDADES</h2>
+        </div>
+
+
         <asp:Panel runat="server" ID="row12" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer33" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer65" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/oportunidad_facturacion_detalle.aspx") %>">Ver Detalle</a>
+                    </div>               
                 </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer34" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                   
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer35" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                 
                 </div>
             </div>
         </asp:Panel>
@@ -350,19 +433,22 @@
         <asp:Panel runat="server" ID="row13" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer36" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                     <CR:CrystalReportViewer ID="CrystalReportViewer41" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+<%--                    <CR:CrystalReportViewer ID="CrystalReportViewer36" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
                         <a href="<%=ResolveClientUrl("~/Reportes/operaciones_no_conciliadas_detalle.aspx") %>">Ver Detalle</a>
-                    </div>
+                    </div>--%>
                 </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer37" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                      <CR:CrystalReportViewer ID="CrystalReportViewer42" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+<%--                    <CR:CrystalReportViewer ID="CrystalReportViewer37" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
                         <a href="<%=ResolveClientUrl("~/Reportes/monto_no_conciliado_detalle.aspx") %>">Ver Detalle</a>
-                    </div>
+                    </div>--%>
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer38" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer43" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                  
                 </div>
             </div>
         </asp:Panel>
@@ -370,16 +456,15 @@
         <asp:Panel runat="server" ID="row14" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer39" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer48" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                   
                 </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer40" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
-                    <div class="centered-link"> 
-                        <a href="<%=ResolveClientUrl("~/Reportes/colaboradores_detalle.aspx") %>">Ver Detalle</a>
-                    </div>
+                    <CR:CrystalReportViewer ID="CrystalReportViewer49" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer41" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                     <CR:CrystalReportViewer ID="CrystalReportViewer50" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer41" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
             </div>
         </asp:Panel>
@@ -387,27 +472,43 @@
         <asp:Panel runat="server" ID="row15" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer42" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer51" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                  <%--  <CR:CrystalReportViewer ID="CrystalReportViewer42" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer43" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                      <CR:CrystalReportViewer ID="CrystalReportViewer52" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                  <%--  <CR:CrystalReportViewer ID="CrystalReportViewer43" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer44" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                     <CR:CrystalReportViewer ID="CrystalReportViewer53" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer44" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
             </div>
         </asp:Panel>
 
+        <div class="title-container">
+            <h2>ALQUILERES</h2>
+        </div>
+
         <asp:Panel runat="server" ID="row16" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer45" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer30" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/alquileres_anual_detalle.aspx") %>">Ver Detalle</a>
+                    </div>
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer45" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer46" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer31" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/alquileres_mensual_detalle.aspx") %>">Ver Detalle</a>
+                    </div>
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer46" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer47" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                      <CR:CrystalReportViewer ID="CrystalReportViewer32" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer47" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
             </div>
         </asp:Panel>
@@ -415,60 +516,123 @@
         <asp:Panel runat="server" ID="row17" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer48" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer33" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <%--<CR:CrystalReportViewer ID="CrystalReportViewer48" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer49" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer34" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <%--<CR:CrystalReportViewer ID="CrystalReportViewer49" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer50" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                     <CR:CrystalReportViewer ID="CrystalReportViewer35" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer50" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
             </div>
         </asp:Panel>
+
+        <div class="title-container">
+            <h2>RRHH</h2>
+        </div>
 
         <asp:Panel runat="server" ID="row18" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer51" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
-                </div>
+                    <CR:CrystalReportViewer ID="CrystalReportViewer40" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                        <div class="centered-link"> 
+                            <a href="<%=ResolveClientUrl("~/Reportes/colaboradores_detalle.aspx") %>">Ver Detalle</a>
+                        </div>                                
+                    </div>
                 <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer52" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                     <CR:CrystalReportViewer ID="CrystalReportViewer39" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" /> 
+                  <%--  <CR:CrystalReportViewer ID="CrystalReportViewer52" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer53" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                      <CR:CrystalReportViewer ID="CrystalReportViewer38" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer53" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
             </div>
         </asp:Panel>
 
+       <div class="title-container">
+            <h2>POSTVENTA</h2>
+        </div>
+
         <asp:Panel runat="server" ID="row19" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer54" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
-                
+                   <CR:CrystalReportViewer ID="CrystalReportViewer66" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" /> 
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/entregas_anho_actual_detalle.aspx") %>">Ver Detalle</a>
+                    </div>
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer54" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>     
                 </div>
                  <div class="div2">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer55" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                      <CR:CrystalReportViewer ID="CrystalReportViewer67" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                     <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/entregas_mes_actual_detalle.aspx") %>">Ver Detalle</a>
+                    </div>
+                   <%-- <CR:CrystalReportViewer ID="CrystalReportViewer55" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                  
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer56" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <CR:CrystalReportViewer ID="CrystalReportViewer68" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                    <div class="centered-link"> 
+                        <a href="<%=ResolveClientUrl("~/Reportes/entregas_pendientes_detalle.aspx") %>">Ver Detalle</a>
+                    </div>
+                    <%--<CR:CrystalReportViewer ID="CrystalReportViewer56" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
                 </div>
             </div>
         </asp:Panel>
-        
-        <asp:Panel runat="server" ID="row20" Visible="false">
+
+        <asp:Panel runat="server" ID="rowMaquinaria1" Visible="true">
+                    <div class="container">
+                        <div class="div1">
+                            <CR:CrystalReportViewer ID="CrystalReportViewer69" runat="server" Visible="true" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                               <div class="centered-link"> 
+                                  <%--<a href="<%=ResolveClientUrl("~/Reportes/ingreso_maquinarias_detalle.aspx") %>">Ver Detalle</a>--%>
+                                </div>
+                        </div>
+                        <div class="div2">
+                             <CR:CrystalReportViewer ID="CrystalReportViewer71" runat="server" Visible="true" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                     
+                        </div>
+                        <div class="div3">
+                        <CR:CrystalReportViewer ID="CrystalReportViewer72" runat="server" Visible="true" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                            
+                        </div>
+                    </div>    
+        </asp:Panel>
+
+        <asp:panel runat="server" ID="costosMaquinariasEquipos" Visible="true">
+                    <div class="container">
+                        <div class="div1">
+                             <CR:CrystalReportViewer ID="CrystalReportViewer73" runat="server" Visible="true" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                        </div> 
+                        <div class="div2">
+                                <CR:CrystalReportViewer ID="CrystalReportViewer74" runat="server" Visible="true" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                        </div>
+                        <div class="div3">
+                            <CR:CrystalReportViewer ID="CrystalReportViewer75" runat="server" Visible="true" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+                        </div>
+                    </div>              
+        </asp:Panel>
+
+
+
+     
+     <!--  <asp:Panel runat="server" ID="row20" Visible="false">
             <div class="container">
                 <div class="div1">
                     <CR:CrystalReportViewer ID="CrystalReportViewer57" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
-                        <a href="<%=ResolveClientUrl("~/Reportes/ventas_inbound_anual_detalle.aspx") %>">Ver Detalle</a>
+                       <%-- <a href="<%=ResolveClientUrl("~/Reportes/ventas_inbound_anual_detalle.aspx") %>">Ver Detalle</a>--%>
                     </div>
                 
                 </div>
                  <div class="div2">
                     <CR:CrystalReportViewer ID="CrystalReportViewer58" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                      <div class="centered-link"> 
-                        <a href="<%=ResolveClientUrl("~/Reportes/ventas_inbound_mensual_detalle.aspx") %>">Ver Detalle</a>
+                       <%-- <a href="<%=ResolveClientUrl("~/Reportes/ventas_inbound_mensual_detalle.aspx") %>">Ver Detalle</a>--%>
                     </div>
                 </div>
                 <div class="div3">
@@ -477,7 +641,7 @@
             </div>
         </asp:Panel>
 
-        <asp:Panel runat="server" ID="row21" Visible="false">
+         <asp:Panel runat="server" ID="row21" Visible="false">
             <div class="container">
                 <div class="div1">
                     <CR:CrystalReportViewer ID="CrystalReportViewer60" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />                
@@ -500,10 +664,10 @@
                      <CR:CrystalReportViewer ID="CrystalReportViewer64" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer65" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+<%--                    <CR:CrystalReportViewer ID="CrystalReportViewer65" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
                         <a href="<%=ResolveClientUrl("~/Reportes/oportunidad_facturacion_detalle.aspx") %>">Ver Detalle</a>
-                    </div>
+                    </div>--%>
                 </div>
             </div>
         </asp:Panel>
@@ -511,25 +675,26 @@
         <asp:Panel runat="server" ID="row23" Visible="false">
             <div class="container">
                 <div class="div1">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer66" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" /> 
+<%--                    <CR:CrystalReportViewer ID="CrystalReportViewer66" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" /> 
                     <div class="centered-link"> 
                         <a href="<%=ResolveClientUrl("~/Reportes/entregas_anho_actual_detalle.aspx") %>">Ver Detalle</a>
-                    </div>
+                    </div>--%>
                 </div>
                  <div class="div2">  
-                     <CR:CrystalReportViewer ID="CrystalReportViewer67" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+<%--                     <CR:CrystalReportViewer ID="CrystalReportViewer67" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                      <div class="centered-link"> 
                         <a href="<%=ResolveClientUrl("~/Reportes/entregas_mes_actual_detalle.aspx") %>">Ver Detalle</a>
-                    </div>
+                    </div>--%>
                 </div>
                 <div class="div3">
-                    <CR:CrystalReportViewer ID="CrystalReportViewer68" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
+<%--                    <CR:CrystalReportViewer ID="CrystalReportViewer68" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
                     <div class="centered-link"> 
                         <a href="<%=ResolveClientUrl("~/Reportes/entregas_pendientes_detalle.aspx") %>">Ver Detalle</a>
-                    </div>
+                    </div>--%>
                 </div>
             </div>
-        </asp:Panel>
+        </asp:Panel> 
+-->
 
         <div style="text-align:center;margin:24px 0;">
             <asp:Button runat="server" ID="btnLoadMore"
@@ -542,9 +707,7 @@
     </div>
 
     </asp:Panel>
-    </ContentTemplate>
-
-     
+    </ContentTemplate>  
       <Triggers>
         <asp:AsyncPostBackTrigger ControlID="btnLoadMore" EventName="Click" />
     </Triggers>

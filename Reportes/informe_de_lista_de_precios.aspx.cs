@@ -26,8 +26,10 @@ namespace proyecto5.Reportes
             string SAP_DBPass = "V1nsoc4!";
             //string SAP_DBName = "DESARROLLADORAGGSA";
             string SAP_DBName = basedatos;
-
-            CRRpt.Load("C:\\Reportes_Sap\\Informe de Lista de Precios.rpt");
+            if(basedatos == "ALTACREOSA" || basedatos == "ALTAZENTA_NORTE_SA"){
+                CRRpt.Load("C:\\Reportes_Sap\\Informe de Lista de Precios 2.rpt");
+            }
+            else { CRRpt.Load("C:\\Reportes_Sap\\Informe de Lista de Precios.rpt"); }
 
             string strConnection = string.Format("DRIVER={0};UID={1};PWD={2};SERVERNODE={3};DATABASE={4};", "{B1CRHPROXY}", SAP_DBUID, SAP_DBPass, SAP_Server, SAP_DBName);
 

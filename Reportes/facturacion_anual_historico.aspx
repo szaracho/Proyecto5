@@ -4,9 +4,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 </asp:Content>
 
-
-
 <asp:Content ID="Content3" ContentPlaceHolderID="Reportes" runat="server">
-    <CR:CrystalReportViewer ID="CrystalReportViewer2" runat="server" AutoDataBind="true" PageZoomFactor="62" ToolPanelView="None" style="margin-top: 1.5cm;" />
+     <%-- ✅ BOTÓN NUEVO 
+    <div style="margin-bottom: 10px;">
+        <asp:Button ID="btnExportPDF" runat="server" 
+                    Text="Exportar PDF" 
+                    OnClick="btnExportPDF_Click"
+                    CssClass="btn btn-danger" />
+    </div>--%>
+    <CR:CrystalReportViewer ID="CrystalReportViewer2" 
+        runat="server" 
+        AutoDataBind="true" 
+        PageZoomFactor="62" 
+        ToolPanelView="None" 
+        style="margin-top: 1.5cm;" />
 
 </asp:Content>

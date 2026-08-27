@@ -151,7 +151,7 @@
     <script>
 (function () {
     //Tiempo de inactividad permitido (en minutos)
-    var TIMEOUT_MIN = 540; //9 horas de sesion
+    var TIMEOUT_MIN = 540; //8 horas de sesion
     //Minutos antes para mostrar un aviso
     var WARN_MIN = 5; // Avisa 5 minutos antes 
 
@@ -312,10 +312,20 @@
                                 Status de Leads
                             </a>
                         </li>
-                        <li>
-                            <a href='<%# ResolveClientUrl("~/Reportes/informe_de_lista_de_precios.aspx?bd=" + Eval("bd")) %>'>
-                                Informe de Lista de Precios
-                            </a>
+                        <li> <!-- Fecha de modificacion 10/04/2026 -->
+                            <% if (bd == "ALTACREOSA" || bd == "ALTAZENTA_NORTE_SA") { %>
+        
+                                <a href='<%# ResolveClientUrl("~/Reportes/informe_de_lista_de_precios_2.aspx?bd=" + Eval("bd")) %>'>
+                                    Informe de Lista de Precios 2
+                                </a>   
+        
+                            <% } else { %>
+    
+                                <a href='<%# ResolveClientUrl("~/Reportes/informe_de_lista_de_precios.aspx?bd=" + Eval("bd")) %>'>
+                                    Informe de Lista de Precios
+                                </a>
+        
+                            <% } %>
                         </li>
                         <li>
                             <a href='<%# ResolveClientUrl("~/Reportes/visitas_efectivas_inbound.aspx?bd=" + Eval("bd")) %>'>
@@ -325,6 +335,11 @@
                         <li>
                             <a href='<%# ResolveClientUrl("~/Reportes/visitas_asignadas_showrrom.aspx?bd=" + Eval("bd")) %>'>
                                 Informe de Visitas Asignadas Showroom
+                            </a>
+                        </li>
+                        <li>
+                            <a href='<%# ResolveClientUrl("~/Reportes/listado_de_precios_tipologia.aspx?bd=" + Eval("bd")) %>'>
+                                Listado de Precios - Tipología
                             </a>
                         </li>
                     <% } %>

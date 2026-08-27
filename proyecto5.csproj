@@ -124,6 +124,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Styles.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -219,6 +220,8 @@
     <Content Include="Reportes\facturacion_mensual_historico_empresa.aspx" />
     <Content Include="Reportes\flujo_caja.aspx" />
     <Content Include="Reportes\informe_comercial_crm.aspx" />
+    <Content Include="Reportes\listado_de_precios.aspx" />
+    <Content Include="Reportes\listado_de_precios_tipologia.aspx" />
     <Content Include="Reportes\informe_consolidado.aspx" />
     <Content Include="Reportes\informe_directorio.aspx" />
     <Content Include="Reportes\ingresoegresos.aspx" />
@@ -804,6 +807,20 @@
     <Compile Include="Reportes\informe_comercial_crm.aspx.designer.cs">
       <DependentUpon>informe_comercial_crm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\listado_de_precios.aspx.cs">
+      <DependentUpon>listado_de_precios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\listado_de_precios.aspx.designer.cs">
+      <DependentUpon>listado_de_precios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\listado_de_precios_tipologia.aspx.cs">
+      <DependentUpon>listado_de_precios_tipologia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\listado_de_precios_tipologia.aspx.designer.cs">
+      <DependentUpon>listado_de_precios_tipologia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\informe_consolidado.aspx.cs">
       <DependentUpon>informe_consolidado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1085,6 +1102,8 @@
           <DevelopmentServerPort>51697</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:8084/Reporte_test</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:8084/Reporte_test</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -11,7 +11,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <title>Altamira Group</title>
 </head>
-<body class="fondologin">
+<body class="fondologin"> 
 
    
     <form id="form1" runat="server">

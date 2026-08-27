@@ -118,12 +118,7 @@ namespace proyecto5
         }
 
 
-        
-
-
-
-
-        // Rutas de .rpt por índice (1..68).
+        // Rutas de .rpt por índice (1..70).
         private static readonly string[] RptPaths = new[]
         {
             null,
@@ -194,7 +189,14 @@ namespace proyecto5
             @"C:\Reportes_Sap\Dashboard\Oportunidades Facturacion.rpt",
             @"C:\Reportes_Sap\Dashboard\Entregas Año en Curso.rpt",
             @"C:\Reportes_Sap\Dashboard\Entregas Mes en Curso.rpt",
-            @"C:\Reportes_Sap\Dashboard\Entregas Pendientes.rpt"
+            @"C:\Reportes_Sap\Dashboard\Entregas Pendientes.rpt",
+            @"C:\Reportes_Sap\Dashboard\Ingresos_Maquinarias.rpt",//total ingresos maquinarias
+            @"C:\Reportes_Sap\Dashboard\Total Activos.rpt",//para saber los art construidos post venta 
+            @"C:\Reportes_Sap\Dashboard\Marketing_Meta_kpi.rpt",//Metas marketing
+            @"C:\Reportes_Sap\Dashboard\Proyectos_kpi.rpt",//Total de Ingresos y Egresos dpto de proyectos
+            @"C:\Reportes_Sap\Dashboard\Maquinarias-Indice de cumplimiento.rpt",//Para saber los costos de las maquinarios y equipos
+            @"C:\Reportes_Sap\Dashboard\INFORME EFECTIVIDAD COBRANZAS.rpt",//EFECTIVIDAD COBRANZAS 2025
+            @"C:\Reportes_Sap\Dashboard\OBRAS KPI RENTABILDIAD_V3.rpt"//Total informe de efectividad de obras 
         };
 
         // Cuántos viewers ya mostramos (persistido entre postbacks)
@@ -208,7 +210,7 @@ namespace proyecto5
         {
             if (!IsPostBack && pnlReportes.Visible)
             {
-                int precargarHasta = 68;
+                int precargarHasta = 75;
                 int maxIndex = ReportCache.RptPaths.Length - 1;  // ← cambio aquí
                 int endIndex = Math.Min(maxIndex, precargarHasta);
 
@@ -292,71 +294,73 @@ namespace proyecto5
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!User.Identity.IsAuthenticated) return;
-
-            userName = Context.User.Identity.Name;
-            var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-            var ticket = FormsAuthentication.Decrypt(authCookie.Value);
-            var data = ticket.UserData.Split(',');
-            rol = data[0];
-            nombreusu = data[1];
-            Session["EmpresasLista"] = registros;
-
-            LoadEmpresas();
-            pnlReportes.Visible = (rol == "6" || rol == "1");
-
-            pnlEmpresasLateral.Visible = (rol == "4" || rol == "6" || rol == "1");
-
-            if (pnlEmpresasLateral.Visible)
+            try
             {
-                // Tomamos la lista de empresas cacheada en el Master (la que te pasé)
-                var master = (SiteMaster)Master;
-                var empresas = master != null ? master.EmpresasListaPublic : new List<SiteMaster.Empresas>();
+                if (!User.Identity.IsAuthenticated) return;
 
-                // Enlazamos SIEMPRE (así no se “pierde” en postbacks asíncronos)
-                rptEmpresasLateral.DataSource = empresas;
-                rptEmpresasLateral.DataBind();
+                userName = Context.User.Identity.Name;
+                var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                var ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                var data = ticket.UserData.Split(',');
+                rol = data[0];
+                nombreusu = data[1];
+
+                pnlReportes.Visible = (rol == "6" || rol == "1");
+                pnlEmpresasLateral.Visible = (rol == "4" || rol == "6" || rol == "1");
+
+                LoadEmpresas();
+
+                if (pnlEmpresasLateral.Visible)
+                {
+                    var master = (SiteMaster)Master;
+                    var empresas = master?.EmpresasListaPublic ?? new List<SiteMaster.Empresas>();
+                    rptEmpresasLateral.DataSource = empresas;
+                    rptEmpresasLateral.DataBind();
+                }
+
+                if (!IsPostBack)
+                {
+                    var cacheEmp = HttpRuntime.Cache["EmpresasLista"] as List<SiteMaster.Empresas>;
+                    if (cacheEmp != null)
+                        registros = cacheEmp
+                            .Select(emp => new Empresas { empresa = emp.empresa, bd = emp.bd })
+                            .ToList();
+
+                    basedatoss = Request.QueryString["bd"];
+                    if (string.IsNullOrEmpty(basedatoss)) basedatoss = "INVERSIONESGGSA";
+                }
+                else
+                {
+                    if (LoadedCount > 0)
+                        BindRange(1, LoadedCount);
+                }
             }
-
-            if (!IsPostBack)
+            catch (Exception ex)
             {
-                // Ya no necesitas consultar SQL, toma las empresas del caché
-                var cacheEmp = HttpRuntime.Cache["EmpresasLista"] as List<SiteMaster.Empresas>;
-                if (cacheEmp != null)
-                    registros = cacheEmp.Select(emp => new Empresas { empresa = emp.empresa, bd = emp.bd }).ToList();
+                try
+                {
+                    string logPath = @"C:\Reportes_Sap\error_log.txt";
+                    string msg = string.Format(
+                        "[{0}] ERROR en Page_Load\r\n" +
+                        "Usuario : {1}\r\n" +
+                        "Mensaje : {2}\r\n" +
+                        "Tipo    : {3}\r\n" +
+                        "Stack   :\r\n{4}\r\n" +
+                        "Inner   : {5}\r\n" +
+                        "{6}\r\n",
+                        DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                        userName ?? "desconocido",
+                        ex.Message,
+                        ex.GetType().FullName,
+                        ex.StackTrace,
+                        ex.InnerException?.Message ?? "ninguna",
+                        new string('-', 80)
+                    );
+                    System.IO.File.AppendAllText(logPath, msg);
+                }
+                catch { }
 
-                basedatoss = Request.QueryString["bd"];
-                if (string.IsNullOrEmpty(basedatoss)) basedatoss = "INVERSIONESGGSA";
-
-                //using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
-                //{
-                //    string query = "SELECT empresa, basedatos FROM empresas where activo=1 order by orden";
-                //    var command = new SqlCommand(query, connection);
-                //    connection.Open();
-                //    using (var reader = command.ExecuteReader())
-                //    {
-                //        while (reader.Read())
-                //        {
-                //            registros.Add(new Empresas
-                //            {
-                //                empresa = reader["empresa"].ToString(),
-                //                bd = reader["basedatos"].ToString()
-                //            });
-                //        }
-                //    }
-                //}
-                //var cacheEmp = Session["EmpresasLista"] as List<Empresas>;
-                //if (cacheEmp != null) registros = cacheEmp;
-
-                //basedatoss = Request.QueryString["bd"];
-                //if (string.IsNullOrEmpty(basedatoss)) basedatoss = "INVERSIONESGGSA";
-
-            }
-            else
-            {
-                // Siempre rebind de lo ya visible (porque en Unload se Dispose-an)
-                if (LoadedCount > 0)
-                    BindRange(1, LoadedCount);
+                lblStatus.Text = "Error al cargar. Revisa el log en el servidor.";
             }
         }
 
@@ -432,10 +436,6 @@ namespace proyecto5
         }
 
 
-
-
-
-
         private static void ApplyB1CrhProxyConnection(ReportDocument doc, string strConnection, string server, string db)
         {
             var dsc = doc.DataSourceConnections[0];
@@ -476,34 +476,55 @@ namespace proyecto5
 
         protected void Page_Unload(object sender, EventArgs e)
         {
-            //// 1) Desacopla viewers que hayan quedado con un doc
-            //try
-            //{
-            //    for (int i = 1; i <= LoadedCount; i++)
-            //    {
-            //        var v = FindViewerByIndex(i);
-            //        ReleaseViewer(v);
-            //    }
-            //}
-            //catch { }
-
-            //// 2) Cierra/dispone todos los docs abiertos en este request
-            //foreach (var report in _openedReports)
-            //{
-            //    try { report.Close(); } catch { }
-            //    try { report.Dispose(); } catch { }
-            //}
-            //_openedReports.Clear();
-
-            //// 3) Fuerza recolección para soltar handles nativos (Crystal)
-            //try
-            //{
-            //    GC.Collect();
-            //    GC.WaitForPendingFinalizers();
-            //    GC.Collect();
-            //}
-            //catch { }
+            try
+            {
+                foreach (var viewer in GetAllViewers(this))
+                {
+                    try { viewer.ReportSource = null; } catch { }
+                }
+            }
+            catch { }
         }
+
+        private IEnumerable<CrystalReportViewer> GetAllViewers(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                if (c is CrystalReportViewer crv)
+                    yield return crv;
+                foreach (var child in GetAllViewers(c))
+                    yield return child;
+            }
+        }
+        //{
+        //// 1) Desacopla viewers que hayan quedado con un doc
+        //try
+        //{
+        //    for (int i = 1; i <= LoadedCount; i++)
+        //    {
+        //        var v = FindViewerByIndex(i);
+        //        ReleaseViewer(v);
+        //    }
+        //}
+        //catch { }
+
+        //// 2) Cierra/dispone todos los docs abiertos en este request
+        //foreach (var report in _openedReports)
+        //{
+        //    try { report.Close(); } catch { }
+        //    try { report.Dispose(); } catch { }
+        //}
+        //_openedReports.Clear();
+
+        //// 3) Fuerza recolección para soltar handles nativos (Crystal)
+        //try
+        //{
+        //    GC.Collect();
+        //    GC.WaitForPendingFinalizers();
+        //    GC.Collect();
+        //}
+        //catch { }
+        //}
 
         protected void btncerrar_Click(object sender, EventArgs e)
         {

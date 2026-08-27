@@ -1,4 +1,4 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using System;
 using System.Collections.Generic;
@@ -9,16 +9,13 @@ using System.Web.UI.WebControls;
 
 namespace proyecto5.Reportes
 {
-    public partial class informe_crm : System.Web.UI.Page
+    public partial class listado_de_precios : System.Web.UI.Page
     {
-       public String basedatos;
-        public string rol = "2";
-        public String fondocss="reporte";
+        public String basedatos;
+        public string rol = "4";
 
         protected void Page_Init(object sender, EventArgs e)
         {
-
-
             basedatos = Request.QueryString["bd"];
 
             ReportDocument CRRpt = new ReportDocument();
@@ -27,23 +24,9 @@ namespace proyecto5.Reportes
 
             string SAP_DBUID = "SYSTEM";
             string SAP_DBPass = "V1nsoc4!";
-            //string SAP_DBName = "DESARROLLADORAGGSA"; if para 
             string SAP_DBName = basedatos;
 
-            if (SAP_DBName == "ALTAZENTA_NORTE_SA")
-            {
-                CRRpt.Load("C:\\Reportes_Sap\\Informe de Mix de Ventas - Altavida Norte.rpt");
-            }
-            else if (SAP_DBName == "ALTACREOSA")
-            {
-                CRRpt.Load("C:\\Reportes_Sap\\Informe de Mix de Ventas - Veralta.rpt");
-            }
-            else
-            {
-                CRRpt.Load("C:\\Reportes_Sap\\Informe de Mix de Ventas.rpt");
-            }
-
-            // CRRpt.Load("C:\\Reportes_Sap\\Informe de Mix de Ventas.rpt");
+            CRRpt.Load("C:\\Reportes_Sap\\listado_precios_libre.rpt");
 
             string strConnection = string.Format("DRIVER={0};UID={1};PWD={2};SERVERNODE={3};DATABASE={4};", "{B1CRHPROXY}", SAP_DBUID, SAP_DBPass, SAP_Server, SAP_DBName);
 

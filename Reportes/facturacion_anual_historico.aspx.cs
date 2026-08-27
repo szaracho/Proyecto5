@@ -46,6 +46,8 @@ namespace proyecto5.Reportes
 
         }
 
+        //Agregar aca el metodo para exportar el pdf ExportToHttpResponse 
+
         protected void Page_Unload(object sender, EventArgs e)
         {
             //Cierra los reportes y libera los recursos

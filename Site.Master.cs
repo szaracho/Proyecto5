@@ -11,6 +11,7 @@ namespace proyecto5
 {
     public partial class SiteMaster : MasterPage
     {
+        public String bd;
         public string userName;
         public string rol;
         public string nombreusu;
@@ -83,7 +84,7 @@ namespace proyecto5
         }
 
         // MUY IMPORTANTE: siempre re-vincular en PreRender para que el menú superior no “desaparezca” en postbacks de páginas hijas.
-        
+
         protected void Page_PreRender(object sender, EventArgs e)
         {
             try
@@ -94,9 +95,29 @@ namespace proyecto5
                     rptEmpresasSuperior.DataBind();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Si por alguna razón no hay lista (error DB), evita romper master
+                try
+                {
+                    string logPath = @"C:\Reportes_Sap\error_log.txt";
+                    string msg = string.Format(
+                        "[{0}] ERROR en Page_PreRender Site_Master\r\n" +
+                        "Mensaje : {1}\r\n" +
+                        "Tipo    : {2}\r\n" +
+                        "Stack   :\r\n{3}\r\n" +
+                        "Inner   : {4}\r\n" +
+                        "{5}\r\n",
+                        DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                        ex.Message,
+                        ex.GetType().FullName,
+                        ex.StackTrace,
+                        ex.InnerException?.Message ?? "ninguna",
+                        new string('-', 80)
+                    );
+                    System.IO.File.AppendAllText(logPath, msg);
+                }
+                catch { }
+
                 if (rptEmpresasSuperior != null)
                 {
                     rptEmpresasSuperior.DataSource = new List<Empresas>();
