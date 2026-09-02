@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Copias de seguridad de Crystal Reports
+Archivos de copia de seguridad de Crystal Reports/
