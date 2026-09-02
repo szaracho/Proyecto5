@@ -5,7 +5,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
-   <div class="page-header">
+   <div class="page-header no-print">   
        <div class="menuinicio">
            <% if (rol == "4" || rol=="6" || rol=="1" ){  %>
               <a class="linkempresa" style="margin-top: 30px" href="<%=ResolveClientUrl("~/Reportes/informe_directorio.aspx") %>">
@@ -88,7 +88,11 @@
 
     <div class="main-content">
         
-
+    <div class="no-print" style="text-align:right; margin-bottom:15px;">
+            <button type="button" class="btn btn-primary" onclick="window.print(); return false;">
+                Exportar a PDF
+            </button>
+        </div>
 
     <div class="title-container">
         <h2>FACTURACION Y COBRANZAS</h2>
@@ -696,7 +700,7 @@
         </asp:Panel> 
 -->
 
-        <div style="text-align:center;margin:24px 0;">
+            <div class="no-print" style="text-align:center;margin:24px 0;">
             <asp:Button runat="server" ID="btnLoadMore"
                 CssClass="btn btn-primary"
                 Text="Cargar más"
@@ -739,7 +743,7 @@
     </script>
 
 
-    <asp:Label ID="lblGenerado" runat="server" />
+   <asp:Label ID="lblGenerado" runat="server" CssClass="no-print" />
 </asp:Content>
 
     

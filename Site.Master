@@ -146,6 +146,54 @@
                 width: 100%; /* Asegura que los divs ocupen el 100% del ancho del contenedor */
             }
         }
+        /* Estilos para exportar a PDF (Ctrl+P / Guardar como PDF) */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .no-print,
+            .navbar,
+            .page-header,
+            .menu-hamburguesa,
+            .centered-link,
+            footer {
+                display: none !important;
+            }
+
+            body {
+                padding-top: 0 !important;
+            }
+
+            .main-content {
+                margin-left: 0 !important;
+                padding: 0 !important;
+            }
+
+            .div1, .div2, .div3 {
+                opacity: 1 !important;
+            }
+
+            .container {
+                page-break-inside: avoid;
+            }
+
+            .title-container {
+                page-break-after: avoid;
+            }
+            #fondoPrint {
+                display: block !important;
+                position: fixed !important;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('images/fondo.jpg') no-repeat center center;
+                background-size: cover;
+                z-index: -1;
+            }
+        }
     </style>
 
     <script>
@@ -189,7 +237,8 @@
 
 </head>
 <body  class=<%= fondocss %>>
-    <form runat="server">
+    <div id="fondoPrint" style="display:none;"></div>
+    <form runat="server">    
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
