@@ -38,6 +38,10 @@ namespace proyecto5.Reportes
             {
                 CRRpt.Load("C:\\Reportes_Sap\\Informe de Mix de Ventas - Veralta.rpt");
             }
+            else if (SAP_DBName == "ALTACREODOSSA")
+            {
+                CRRpt.Load("C:\\Reportes_Sap\\Informe de Mix de Ventas - AltacreoDos.rpt");
+            }
             else
             {
                 CRRpt.Load("C:\\Reportes_Sap\\Informe de Mix de Ventas.rpt");
