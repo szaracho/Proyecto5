@@ -183,8 +183,8 @@
                 </div>
                 <div class="div3">
                      <CR:CrystalReportViewer ID="CrystalReportViewer15" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />
-                    <div class="centered-link"> 
-                        <a href="<%=ResolveClientUrl("~/Recobranza_entre_anhosportes/cobranza_entre_anhos.aspx") %>">Ver Detalle</a>
+                    <div class="centered-link">
+                        <a href="<%=ResolveClientUrl("~/Reportes/cobranza_entre_anhos.aspx") %>">Ver Detalle</a>
                     </div>
                     <%--<CR:CrystalReportViewer ID="CrystalReportViewer16" runat="server" Visible="false" AutoDataBind="false"  PageZoomFactor="62" ToolPanelView="None" DisplayToolbar="False" />--%>
 <%--                    <div class="centered-link"> 
